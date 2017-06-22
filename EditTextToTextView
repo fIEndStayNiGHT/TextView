@@ -1,0 +1,7 @@
+	private EditText  edit;
+	private TextView  text;
+	private String str;
+
+
+  str=edit.getText().toString();
+	text.setText(str);
