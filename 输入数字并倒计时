@@ -1,0 +1,72 @@
+	  private int v;
+	  private int i;
+	  private String str0;
+  	private String str1;
+  
+  
+    text=(TextView)findViewById(R.id.gaixie);
+		edit=(EditText)findViewById(R.id.edit);
+		btn=(Button)findViewById(R.id.bian);
+		btn.setOnClickListener(time);
+    
+    str0=edit.getText().toString();
+    
+    if(TextUtils.isEmpty(str0)||str0.trim().length()==0){
+			str0="0";
+		}else{
+			i=Integer.parseInt(edit.getText().toString());
+		}
+    
+
+    
+		timer.schedule(task, 1000, 1000);
+    
+    
+    
+    
+    	Timer timer = new Timer();
+		Handler handler= new Handler(){
+			public void handleMessage(Message msg){
+				if (msg.what == 1){
+					if(i>=0){
+						text.setText(Integer.toString(i--));
+					}else{
+						//handler.removeMessages(msg.what);
+					}
+				}
+			super.handleMessage(msg);
+			};
+		};
+    
+    
+    
+    
+		TimerTask task = new TimerTask(){
+			public void run() {
+				Message msg = new Message();
+				msg.what=1;
+				handler.sendMessage(msg);			};
+		};
+	
+	
+  
+  
+  public OnClickListener time= new OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+
+		str1=edit.getText().toString();
+		if(TextUtils.isEmpty(str1)){
+			i=0;
+		}else{
+			i=Integer.valueOf(str1);
+		};
+		
+
+	}
+    
+    
+    
+    
+
